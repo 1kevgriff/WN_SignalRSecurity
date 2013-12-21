@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-4">
+        <h2>Add Note</h2>
+        <textarea rows="5" cols="75" data-bind="value: newNoteText"></textarea>
+        <br /><br />
+        <button class="btn btn-primary" data-bind="click: submitNote">Add Note</button>
+    </div>
+    <div class="col-md-8" data-bind="foreach: noteList">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Note from <span data-bind="text: Author"></span></div>
+            <div class="panel-body">
+                <p data-bind="text: Content"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/knockout-3.0.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.0.1.js"></script>
+    <script src="~/js/app.js"></script>
+}
