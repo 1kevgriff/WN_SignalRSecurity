@@ -20,7 +20,6 @@ namespace SecurityDemo.Web.Hubs
             return NoteList;
         }
 
-        [Authorize]
         public void AddNote(Note newNote)
         {
             newNote.Date = DateTime.Now;
@@ -30,7 +29,6 @@ namespace SecurityDemo.Web.Hubs
             Clients.All.IncomingNote(newNote);
         }
         
-        [Authorize(Roles="Admin")]
         public void DeleteAllNotes()
         {
             NoteList.Clear();
